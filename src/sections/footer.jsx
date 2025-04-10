@@ -18,14 +18,16 @@ function Footer() {
           {/* Informações da empresa */}
           <div>
             <h4 className="text-xl font-bold">Diagonalle</h4>
-            <p className="text-sm opacity-70">Lorem ipsum dolor sit amet</p>
+            <p className="text-sm opacity-70">
+              Porque aqui, nós fazemos mágica!
+            </p>
             <p className="text-xs mt-2 opacity-50">
               © {new Date().getFullYear()} Diagonalle. Todos os direitos
               reservados.
             </p>
           </div>
 
-          {/* Links sociais */}
+          {/* Links sociais
           <div className="flex md:flex-row flex-nowrap items-center gap-3 text-purple-300 text-sm md:text-base">
             <a
               href="https://instagram.com/seuPerfil"
@@ -41,7 +43,7 @@ function Footer() {
             >
               <Mail size={18} /> E-mail
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Logos dos clientes */}
@@ -51,7 +53,7 @@ function Footer() {
               key={index}
               src={logo}
               alt={`Logo ${index}`}
-              className="h-8 object-contain"
+              className="h-8 text-white fill-current"
               loading="lazy"
             />
           ))}

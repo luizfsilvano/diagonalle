@@ -1,108 +1,79 @@
-// import Gif1 from "../assets/gif-senai-blackweek.gif";
-// import Gif2 from "../assets/gif-desconto-cursos.gif";
-// import Gif3 from "../assets/gif-tecnologia.gif";
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
+import fundoVideo from "../assets/fundo.mp4";
 
-// function about() {
-//   return (
-//     <section
-//       id="sobre"
-//       className="scroll-mt-20 bg-[#EAE6F2] text-[#1E1038] py-20 px-6 text-center"
-//     >
-//       <div className="max-w-5xl mx-auto">
-//         <h2 className="text-3xl md:text-5xl font-bold mb-10">Quem Somos</h2>
+function About() {
+  const title = "A DIAGONALLE";
 
-//         <p className="text-lg md:text-xl opacity-90 leading-relaxed mb-12">
-//           Somos uma empresa criativa que une magia e estratégia para dar vida à
-//           sua comunicação visual. Com criatividade afiada e domínio técnico,
-//           transformamos ideias em experiências que encantam.
-//         </p>
+  return (
+    <section className="relative min-h-screen overflow-hidden text-[#0D0D0D]">
+      {/* 🎥 Vídeo de fundo */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src={fundoVideo} type="video/mp4" />
+        Seu navegador não suporta vídeo.
+      </video>
 
-//         {/* <hr className="my-12 border-t-2 border-purple-300 w-24 mx-auto rounded-full" /> */}
+      {/* Overlay se quiser aplicar um leve branco/transparente sobre o vídeo */}
+      {/* <div className="absolute inset-0 bg-white/80 z-10" /> */}
 
-//         {/* Cards */}
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//           <motion.div
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.6, delay: 0.4 }}
-//             viewport={{ once: true }}
-//           >
-//             <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition">
-//               <img
-//                 src={Gif1}
-//                 alt="Criatividade"
-//                 className="w-100 h-100 mx-auto mb-4"
-//                 loading="lazy"
-//               />
-//               <h3 className="text-xl font-semibold mb-2">
-//                 Criatividade Encantadora
-//               </h3>
-//               <p className="text-sm opacity-80">
-//                 Do conceito ao visual final, criamos com originalidade e
-//                 propósito.
-//               </p>
-//             </div>
-//           </motion.div>
+      {/* 📦 Conteúdo principal */}
+      <div className="relative z-20 px-6 py-20 flex flex-col items-center justify-center min-h-screen text-center">
+        <h2 className="text-5xl font-title md:text-8xl font-bold mb-8 inline-block">
+          {title.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.05, duration: 0.4 }}
+              viewport={{ once: true }}
+              className="inline-block"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </h2>
 
-//           <motion.div
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.6, delay: 0.4 }}
-//             viewport={{ once: true }}
-//           >
-//             <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition">
-//               <img
-//                 src={Gif2}
-//                 alt="Motion"
-//                 className="w-100 h-100 mx-auto mb-4"
-//                 loading="lazy"
-//               />
-//               <h3 className="text-xl font-semibold mb-2">Motion com Magia</h3>
-//               <p className="text-sm opacity-80">
-//                 Vídeos e animações que encantam, explicam e convertem.
-//               </p>
-//             </div>
-//           </motion.div>
+        <motion.p
+          className="text-xl font-sans max-w-3xl mx-auto opacity-80 mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          Nasceu em 2019, originária de uma paixão pela publicidade, pela
+          tecnologia e entrega de soluções personalizadas para nossos clientes.
+        </motion.p>
 
-//           <motion.div
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.6, delay: 0.4 }}
-//             viewport={{ once: true }}
-//           >
-//             <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition">
-//               <img
-//                 src={Gif3}
-//                 alt="Tecnologia"
-//                 className="w-100 h-100 mx-auto mb-4"
-//                 loading="lazy"
-//               />
-//               <h3 className="text-xl font-semibold mb-2">
-//                 Tecnologia Inteligente
-//               </h3>
-//               <p className="text-sm opacity-80">
-//                 Adservers e mídia programática para performance real.
-//               </p>
-//             </div>
-//           </motion.div>
-//         </div>
+        <motion.p
+          className="text-xl font-sans max-w-3xl mx-auto opacity-80 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          Criamos experiências digitais memoráveis para sua marca.
+        </motion.p>
 
-//         <motion.div
-//           initial={{ opacity: 0, y: 30 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.6, delay: 1 }}
-//           viewport={{ once: true }}
-//         >
-//           <a
-//             href="#processo"
-//             className="inline-block mt-5 bg-purple-600 text-white py-3 px-6 rounded-full font-semibold shadow-md hover:scale-105 transition"
-//           >
-//             Descubra como trabalhamos
-//           </a>
-//         </motion.div>
-//       </div>
-//     </section>
-//   );
-// }
-// export default about;
+        <motion.a
+          href="#portfolio"
+          className="inline-block font-sans bg-[#041031] text-white py-3 px-6 rounded-full font-medium hover:bg-[#1E2A93] transition"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          Veja nossos trabalhos
+        </motion.a>
+      </div>
+    </section>
+  );
+}
+
+export default About;

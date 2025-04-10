@@ -1,60 +1,70 @@
 import { motion } from "framer-motion";
-import SesiRobotica from "../assets/gif-torneio-sesi-robotica.gif";
+import SesiRobotica from "../assets/sesi-robotica.mp4";
+import SesiMatriculas from "../assets/Sesi-matriculas.mp4";
+import SenaiBestWeek from "../assets/senai-best-week.mp4";
+import SebraeConsultoria from "../assets/sebrae-consultoria.mp4";
+import SebraeAppNovaAssinatura from "../assets/sebrae-app-nova-assinatura.mp4";
+import CaixaTem from "../assets/caixa-tem.mp4";
 import { Sparkles } from "lucide-react";
 
 function Portfolio() {
   const projects = [
     {
+      title: "CAIXA Tem",
+      image: CaixaTem,
+      description:
+        "O App CAIXA Tem, com serviços bancários e acesso a benefícios sociais.",
+      link: "https://www.youtube.com/watch?v=8W0viyiXXWg",
+    },
+    {
       title: "SESI Robótica",
       image: SesiRobotica,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Torneios SESI de Robótica, focados em novas formas de energia sustentável, com competições para estudantes de 9 a 18 anos.",
       link: "https://www.youtube.com/watch?v=7ACB_4nHpOA",
     },
     {
       title: "SESI Matrículas 2023",
-      image: "/assets/portfolio/sesi-matriculas.jpg",
+      image: SesiMatriculas,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Novas matrículas na Rede SESI de Educação, com descontos na mensalidade.",
+      link: "https://www.youtube.com/watch?v=HGI6Nf3hyAg",
     },
     {
       title: "Senai Best Week",
-      image: "/assets/portfolio/senai-bestweek.jpg",
+      image: SenaiBestWeek,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Best Week do SENAI, com descontos em cursos técnicos e profissionalizantes.",
+      link: "https://www.youtube.com/watch?v=jxzDu5nqvFY",
     },
     {
       title: "Sebrae Consultoria",
-      image: "/assets/portfolio/sebrae-consultoria.jpg",
+      image: SebraeConsultoria,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Serviços de consultoria do Sebrae voltados para pequenos negócios.",
+      link: "https://www.youtube.com/watch?v=ilRyMyUiAxo",
     },
     {
       title: "Sebrae APP - Nova assinatura",
-      image: "/assets/portfolio/sebrae-app-nova.jpg",
+      image: SebraeAppNovaAssinatura,
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      title: "CAIXA Tem",
-      image: "/assets/portfolio/caixa-tem.jpg",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Novo app do Sebrae, com ferramentas para gestão e capacitação.",
+      link: "https://www.youtube.com/watch?v=c_s2FiDXudg",
     },
   ];
 
   return (
     <section
       id="portfolio"
-      className="min-h-screen bg-[#F2F2F2] text-[#0D0D0D] py-20 px-6"
+      className="min-h-screen bg-gradient-to-br from-[#0D0D0D] via-[#041031] to-[#041031] text-[#0101010] py-20 px-6"
     >
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6">
-          Sed ut perspiciatis unde omnis iste
+      <div className="max-w-6xl mx-auto text-center content-center">
+        <h2 className="font-title text-3xl md:text-5xl font-bold mb-10 text-white">
+          TRABALHOS
         </h2>
-        <p className="text-[#7B818C] md:text-xl opacity-100 mb-10">
+        {/* <p className="text-[#7B818C] font-sans md:text-xl opacity-100 mb-10">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        </p>
+        </p> */}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
@@ -67,19 +77,30 @@ function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#F8F5F2] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition block"
+              className="relative group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition block h-72"
             >
-              <img
+              {/* 🎥 Vídeo como fundo */}
+              <video
                 src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover select-none"
-                loading="lazy"
-                draggable="false"
+                className="absolute top-0 left-0 w-full h-full object-cover z-0"
+                autoPlay
+                loop
+                muted
+                playsInline
               />
-              <div className="p-4 text-left">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-sm opacity-80">{project.description}</p>
+
+              {/* 🔳 Camada de conteúdo com blur */}
+              <div className="absolute bottom-0 left-0 right-0 bg-black/20 backdrop-blur-md text-white p-4 z-10 min-h-[120px] flex flex-col gap-1">
+                <h3 className="font-title text-lg font-semibold">
+                  {project.title}
+                </h3>
+                <p className="text-sm opacity-80 font-sans">
+                  {project.description}
+                </p>
               </div>
+
+              {/* Overlay opcional para escurecer o vídeo */}
+              <div className="absolute inset-0 bg-black/10 z-0 group-hover:bg-black/20 transition" />
             </motion.a>
           ))}
         </div>

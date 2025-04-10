@@ -18,13 +18,13 @@ function Hero() {
           <div className="flex justify-center gap-4 flex-wrap">
             <a
               href="#portfolio"
-              className="bg-[#F2F2F2] text-[#0D0D0D] font-semibold py-3 px-6 rounded-full shadow-md hover:scale-105 transition"
+              className="bg-[#F2F2F2] font-sans text-[#0D0D0D] font-semibold py-3 px-6 rounded-full shadow-md hover:scale-105 transition"
             >
               Portfólio
             </a>
             <a
               href="#contato"
-              className="border border-[#F2F2F2] text-[#F2F2F2] py-3 px-6 rounded-full hover:bg-[#F2F2F2] hover:text-[#0D0D0D] transition"
+              className="border border-[#F2F2F2] font-sans text-[#F2F2F2] py-3 px-6 rounded-full hover:bg-[#F2F2F2] hover:text-[#0D0D0D] transition"
             >
               Contato
             </a>

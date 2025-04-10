@@ -54,7 +54,7 @@ function ClientsCarousel() {
               <img
                 src={client.src}
                 alt={client.alt}
-                className="h-16 object-contain select-none"
+                className="h-16 object-contain select-none filter invert"
                 loading="lazy"
                 draggable={true}
               />
